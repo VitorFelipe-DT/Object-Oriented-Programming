@@ -1,4 +1,6 @@
+import br.com.alura.screenmatch.calculations.RecommendationFilter;
 import br.com.alura.screenmatch.calculations.TimeCalculator;
+import br.com.alura.screenmatch.models.Episodes;
 import br.com.alura.screenmatch.models.Film;
 import br.com.alura.screenmatch.models.Series;
 
@@ -32,7 +34,18 @@ public class Streaming {
         calculator.includes(mySerie);
         System.out.println(calculator.getTotalTime());
 
+        RecommendationFilter recommendationFilter = new RecommendationFilter();
+        recommendationFilter.filter(myFilm);
+
+        Episodes episodes = new Episodes();
+        episodes.setNumberOfEpisodes(1);
+        episodes.setName("lost");
+        episodes.setTotalViews(300);
+        recommendationFilter.filter(episodes);
+
+
     }
+
 
 
 }
